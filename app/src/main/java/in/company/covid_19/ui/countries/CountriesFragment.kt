@@ -18,6 +18,7 @@ import android.widget.Toast
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_country_list.*
+import kotlinx.android.synthetic.main.layout_progress.*
 import javax.inject.Inject
 
 class CountriesFragment : DaggerFragment() {
@@ -83,14 +84,16 @@ class CountriesFragment : DaggerFragment() {
 
             when {
                 it.status.isLoading() -> {
-                    //TODO show loading or shimmer
+                    progress_view.visibility=View.VISIBLE
                 }
                 it.status.isSuccessful() -> {
+                    progress_view.visibility=View.GONE
                     listOfCountries.clear()
                     it.data?.let { it1 -> listOfCountries.addAll(it1) }
                     countriesAdapter.notifyDataSetChanged()
                 }
                 it.status.isError() -> {
+                    progress_view.visibility=View.GONE
                     if (it.errorMessage != null)
                         context?.let { context ->
                             Toast.makeText(context, it.errorMessage.toString(),Toast.LENGTH_SHORT).show()
