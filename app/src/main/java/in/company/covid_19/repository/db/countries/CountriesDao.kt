@@ -16,7 +16,6 @@ interface CountriesDao {
     @Query("SELECT * FROM countries_table")
     fun getCountries(): LiveData<List<Country>>
 
-
     @Query("DELETE FROM countries_table")
-    abstract fun deleteAllCountries()
+    fun deleteAllCountries()
 }

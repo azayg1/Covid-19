@@ -25,6 +25,7 @@ class CovidStatusAdapter(private var covidDataList: ArrayList<CovidData>) : Recy
     inner class CovidDataHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(covidData: CovidData) = with(itemView) {
+            country.text = covidData.country
             confirmed.text = itemView.context.getString(R.string.text_confirmed,covidData.confirmed)
             recovered.text = itemView.context.getString(R.string.text_recovered,covidData.recovered)
             critical.text = itemView.context.getString(R.string.text_critical,covidData.critical)

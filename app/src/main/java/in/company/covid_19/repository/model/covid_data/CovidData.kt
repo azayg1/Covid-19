@@ -8,8 +8,8 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "covid_status_table")
 data class CovidData(
-    @PrimaryKey(autoGenerate = true) var id: Int = 0,
-    @SerializedName("country") var country: String? = null,
+    @PrimaryKey
+    @SerializedName("country") var country: String,
     @SerializedName("confirmed") var confirmed: Int? = null,
     @SerializedName("recovered") var recovered: Int? = null,
     @SerializedName("critical") var critical: Int? = null,

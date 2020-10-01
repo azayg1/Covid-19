@@ -26,7 +26,7 @@ class CovidStatusRepository @Inject constructor(
         return object : NetworkAndDBBoundResource<List<CovidData>, List<CovidData>>(appExecutors) {
             override fun saveCallResult(item: List<CovidData>) {
                 if (item.isNotEmpty()) {
-                    covidDataDao.deleteAllArticles()
+                   // covidDataDao.deleteAllArticles()
                     covidDataDao.insertArticles(item)
                 }
             }
@@ -34,7 +34,7 @@ class CovidStatusRepository @Inject constructor(
             override fun shouldFetch(data: List<CovidData>?) =
                 (ConnectivityUtil.isConnected(context))
 
-            override fun loadFromDb() = covidDataDao.getCovidData()
+            override fun loadFromDb() = covidDataDao.getCovidData(countryName)
 
             override fun createCall() =
                 apiServices.getCovidData(countryName)

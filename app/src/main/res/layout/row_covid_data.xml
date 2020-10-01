@@ -17,7 +17,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/confirmed"
+            android:id="@+id/country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -29,6 +29,21 @@
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/text_size_18sp"
             app:layout_constraintTop_toTopOf="parent"
+            tools:text="dummy" />
+
+        <TextView
+            android:id="@+id/confirmed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorTransparent"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="@dimen/padding_10sp"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_18sp"
+            app:layout_constraintTop_toBottomOf="@+id/country"
             tools:text="dummy" />
 
         <TextView

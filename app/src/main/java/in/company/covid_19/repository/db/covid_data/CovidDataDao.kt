@@ -14,8 +14,8 @@ interface CovidDataDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertArticles(articles: List<CovidData>): List<Long>
 
-    @Query("SELECT * FROM covid_status_table")
-    fun getCovidData(): LiveData<List<CovidData>>
+    @Query("SELECT * FROM covid_status_table where country=(:countryName)")
+    fun getCovidData(countryName:String): LiveData<List<CovidData>>
 
     @Query("DELETE FROM covid_status_table")
     fun deleteAllArticles()
