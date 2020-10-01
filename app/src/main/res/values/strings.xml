@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Covid-19</string>
+    <string name="text_critical">Critical: %1d</string>
+    <string name="text_confirmed">Confirmed: %1d</string>
+    <string name="text_recovered">Recovered: %1d</string>
+    <string name="text_death">Deaths: %1d</string>
+</resources>
