@@ -1,6 +1,6 @@
 # Covid-19
-MVVM,
-Rertrofit,
+MVVM Architecture,
+Retrofit,
 Dagger2,
 Room,
 Kotlin,
