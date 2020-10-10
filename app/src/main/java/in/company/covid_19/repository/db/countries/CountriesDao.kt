@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import `in`.company.covid_19.repository.model.countries.Country
+import `in`.company.covid_19.repository.model.countries.CountryCovidData
 
 @Dao
 interface CountriesDao {
@@ -18,4 +19,15 @@ interface CountriesDao {
 
     @Query("DELETE FROM countries_table")
     fun deleteAllCountries()
+
+
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertCountryCovidData(list: List<CountryCovidData>): List<Long>
+
+    @Query("SELECT * FROM country_covid_table")
+    fun getAllCountryCovidData(): LiveData<List<CountryCovidData>>
+
+    @Query("DELETE FROM country_covid_table")
+    fun deleteAllCountriesCovidData()
 }

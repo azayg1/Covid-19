@@ -5,8 +5,15 @@
         android:enabled="true"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/title_country"/>
+
     <item
         android:id="@+id/page_2"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:title="All country Data"/>
+
+    <item
+        android:id="@+id/page_3"
         android:enabled="true"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/text_daily_total"/>

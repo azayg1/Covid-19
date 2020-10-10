@@ -27,10 +27,19 @@ class CountriesActivity() : BaseActivity() {
                 R.id.page_2 -> {
                     supportFragmentManager
                         .beginTransaction()
-                        .replace(R.id.fragment_container, LatestTotalFragment.newInstance())
+                        .replace(R.id.fragment_container, AllCountryCovidDataFragment.newInstance())
                         .commit()
                    true
                 }
+
+                R.id.page_3 -> {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, LatestTotalFragment.newInstance())
+                        .commit()
+                    true
+                }
+
                 else -> false
             }
         }

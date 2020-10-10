@@ -1,5 +1,6 @@
 package `in`.company.covid_19.di.modules
 
+import `in`.company.covid_19.ui.countries.AllCountryCovidDataFragment
 import `in`.company.covid_19.ui.countries.CountriesFragment
 import `in`.company.covid_19.ui.countries.LatestTotalFragment
 import dagger.Module
@@ -14,4 +15,7 @@ abstract class CountriesFragmentModule {
 
     @ContributesAndroidInjector
     internal abstract fun contributeLatestTotalFragmentFragment(): LatestTotalFragment
+
+    @ContributesAndroidInjector
+    internal abstract fun contributeAllCountryCovidDataFragment(): AllCountryCovidDataFragment
 }
