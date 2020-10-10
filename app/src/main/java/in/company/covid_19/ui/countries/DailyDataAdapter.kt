@@ -5,11 +5,10 @@ import `in`.company.covid_19.repository.model.covid_data.CovidData
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.row_covid_daily_data.view.*
 
-class DailyDataAdapter(private val countries: List<CovidData>) :
+class DailyDataAdapter(private val list: List<CovidData>) :
     RecyclerView.Adapter<DailyDataAdapter.ViewHolder>() {
 
 
@@ -22,25 +21,27 @@ class DailyDataAdapter(private val countries: List<CovidData>) :
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val country = countries[position]
-        holder.bindView(country)
+        val data = list[position]
+        holder.bindView(data)
     }
 
 
-    override fun getItemCount(): Int = countries.size
+    override fun getItemCount(): Int = list.size
 
-    inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView)  {
+    inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
         init {
             mView.setOnClickListener {
-                onDailyDataClicked?.invoke(countries[adapterPosition])
+                onDailyDataClicked?.invoke(list[adapterPosition])
             }
         }
 
-        fun bindView(covidData: CovidData) = with(mView){
-            confirmed.text = itemView.context.getString(R.string.text_confirmed,covidData.confirmed)
-            recovered.text = itemView.context.getString(R.string.text_recovered,covidData.recovered)
-            critical.text = itemView.context.getString(R.string.text_critical,covidData.critical)
-            death.text = itemView.context.getString(R.string.text_death,covidData.deaths)
+        fun bindView(covidData: CovidData) = with(mView) {
+            confirmed.text =
+                itemView.context.getString(R.string.text_confirmed, covidData.confirmed)
+            recovered.text =
+                itemView.context.getString(R.string.text_recovered, covidData.recovered)
+            critical.text = itemView.context.getString(R.string.text_critical, covidData.critical)
+            death.text = itemView.context.getString(R.string.text_death, covidData.deaths)
         }
     }
 }

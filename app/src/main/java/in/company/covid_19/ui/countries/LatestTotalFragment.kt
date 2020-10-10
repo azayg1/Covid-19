@@ -1,7 +1,6 @@
 package `in`.company.covid_19.ui.countries
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -11,9 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import `in`.company.covid_19.R
-import `in`.company.covid_19.repository.model.countries.Country
 import `in`.company.covid_19.repository.model.covid_data.CovidData
-import `in`.company.covid_19.ui.covid_data.CovidStatusActivity
 import android.widget.Toast
 
 import dagger.android.support.AndroidSupportInjection
@@ -66,7 +63,7 @@ class LatestTotalFragment : DaggerFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindView()
-        fetchCountry()
+        fetchDailyLatestData()
     }
 
     private fun bindView() {
@@ -74,13 +71,11 @@ class LatestTotalFragment : DaggerFragment() {
         countriesAdapter = DailyDataAdapter(dailyDataList)
         recyclerview_countries.adapter = countriesAdapter
         countriesAdapter.onDailyDataClicked = { country ->
-//            val intent = Intent(context, CovidStatusActivity::class.java)
-//            intent.putExtra(CovidStatusActivity.KEY_COUNTRY_NAME, country.countryName)
-//            startActivity(intent)
+
         }
     }
 
-    private fun fetchCountry() {
+    private fun fetchDailyLatestData() {
         countriesViewModel.getLatestTotal().observe(viewLifecycleOwner, Observer {
 
             when {
