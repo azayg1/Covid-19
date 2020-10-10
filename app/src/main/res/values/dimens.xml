@@ -9,4 +9,6 @@
     <dimen name="text_size_12sp">12sp</dimen>
     <dimen name="text_margin_16dp">16dp</dimen>
     <dimen name="text_size_18sp">18sp</dimen>
+    <dimen name="space_5dp">5dp</dimen>
+    <dimen name="text_size_40sp">40sp</dimen>
 </resources>

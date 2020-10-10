@@ -15,10 +15,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#DCFFEB3B">
+        android:background="#F6FF9E">
 
         <TextView
-            android:id="@+id/country"
+            android:id="@+id/daily_total"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -26,11 +26,11 @@
             android:gravity="center"
             android:maxLines="1"
             android:padding="@dimen/padding_10sp"
+            android:text="@string/text_daily_total"
             android:textAllCaps="true"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/text_size_18sp"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="country" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/confirmed"
@@ -41,15 +41,15 @@
             android:background="@color/colorPrimary"
             android:gravity="center"
             android:maxLines="1"
-            app:layout_constrainedWidth="true"
             android:padding="@dimen/padding_10sp"
             android:textAllCaps="true"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text_size_18sp"
+            app:layout_constrainedWidth="true"
             app:layout_constraintEnd_toStartOf="@+id/recovered"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/country"
+            app:layout_constraintTop_toBottomOf="@+id/daily_total"
             tools:text="confirmed" />
 
         <TextView

@@ -11,21 +11,25 @@ abstract class NetworkBoundResource<RequestType> @MainThread constructor() {
     private val result = MediatorLiveData<Resource<RequestType>>()
 
     init {
-
+        // Send loading state to UI
         result.value = Resource.loading()
         fetchFromNetwork()
     }
 
-
+    /**
+     * Fetch the data from network and then send it upstream to UI.
+     */
     private fun fetchFromNetwork() {
         val apiResponse = createCall()
+        // Make the network call
         result.addSource(apiResponse) { response ->
 
             result.removeSource(apiResponse)
-
+            // Dispatch the result
             response?.apply {
                 when {
-                   status.isSuccessful() -> {
+                    // Can be done with if statement if status is successful set this otherwise set error message
+                    status.isSuccessful() -> {
                         setValue(this)
                     }
                     else -> {

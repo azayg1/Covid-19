@@ -1,27 +1,13 @@
-package com.kotlin.mvvm.repository.api.network
+package `in`.company.covid_19.repository.api.network
 
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import `in`.company.covid_19.app.AppExecutors
-import `in`.company.covid_19.repository.api.network.Resource
 
 
-/**
- * Created by Waheed on 04,November,2019
- */
 
-/**
- * A generic class that can provide a resource backed by both the sqlite database and the network.
- *
- *
- * You can read more about it in the [Architecture
- * Guide](https://developer.android.com/arch).
- *
- * @param <ResultType>
- * @param <RequestType>
-</RequestType></ResultType> */
 abstract class NetworkAndDBBoundResource<ResultType, RequestType> @MainThread
               constructor(private val appExecutors: AppExecutors) {
     /**

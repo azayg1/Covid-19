@@ -11,13 +11,14 @@ import retrofit2.http.Query
 interface ApiServices {
 
     @GET("/country")
-    fun getCovidData(@Query("name") countryName: String): LiveData<Resource<List<CovidData>>>
+    fun getCovidDataByCountryName(@Query("name") countryName: String): LiveData<Resource<List<CovidData>>>
 
 
-     @GET("/help/countries")
+    @GET("/help/countries")
     fun getCountrySource(): LiveData<Resource<List<Country>>>
 
-
+    @GET("/totals")
+    fun getLatestDaily(): LiveData<Resource<List<CovidData>>>
 
 
 }

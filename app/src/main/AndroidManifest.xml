@@ -16,17 +16,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity
-            android:name=".ui.countries.CountriesActivity">
+        <activity android:name=".ui.CovidSplashActivity"
+            android:theme="@style/Splash"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.countries.CountriesActivity">
 
-        <activity
-            android:name=".ui.covid_data.CovidStatusActivity"/>
+        </activity>
+        <activity android:name=".ui.covid_data.CovidStatusActivity" />
     </application>
 
 </manifest>

@@ -8,6 +8,14 @@ def credentialProperty = new Properties()
 credentialProperty.load(new FileInputStream(credentialFile))
 
 android {
+    signingConfigs {
+        covid {
+            storeFile file(cred.keyPath)
+            storePassword cred.keyPwd
+            keyAlias cred.keyAlias
+            keyPassword cred.keyPwd
+        }
+    }
     compileSdkVersion androidCompileSdkVersion
     buildToolsVersion "30.0.2"
 
@@ -29,8 +37,9 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.covid
         }
 
         debug {
@@ -91,6 +100,8 @@ dependencies {
     // Room
     implementation "androidx.room:room-runtime:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
+
+    implementation 'com.google.android.material:material:1.2.1'
 
     // Dagger core
     implementation "com.google.dagger:dagger:$dagger_version"

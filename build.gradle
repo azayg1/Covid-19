@@ -1,5 +1,18 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+
+    def localProperties = new Properties()
+    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+    def keyPath =localProperties.getProperty('SIGNING_KEY_PATH')
+    def keyAlias =localProperties.getProperty('SIGNING_ALIAS')
+    def keyPwd =localProperties.getProperty('SIGNING_PWD')
+
+    ext.cred =[
+        'keyPath': keyPath,
+        'keyAlias': keyAlias,
+        'keyPwd' :keyPwd
+    ]
+
     // Android SDK version
     ext.androidMinSdkVersion = 16
     ext.androidTargetSdkVersion = 30

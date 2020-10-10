@@ -4,7 +4,8 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import `in`.company.covid_19.app.AppExecutors
 import `in`.company.covid_19.repository.api.ApiServices
-import com.kotlin.mvvm.repository.api.network.NetworkAndDBBoundResource
+import `in`.company.covid_19.repository.api.network.NetworkAndDBBoundResource
+import `in`.company.covid_19.repository.api.network.NetworkBoundResource
 import `in`.company.covid_19.repository.api.network.Resource
 import `in`.company.covid_19.repository.db.covid_data.CovidDataDao
 import `in`.company.covid_19.repository.model.covid_data.CovidData
@@ -26,8 +27,7 @@ class CovidStatusRepository @Inject constructor(
         return object : NetworkAndDBBoundResource<List<CovidData>, List<CovidData>>(appExecutors) {
             override fun saveCallResult(item: List<CovidData>) {
                 if (item.isNotEmpty()) {
-                   // covidDataDao.deleteAllArticles()
-                    covidDataDao.insertArticles(item)
+                    covidDataDao.insertCovidData(item)
                 }
             }
 
@@ -37,9 +37,11 @@ class CovidStatusRepository @Inject constructor(
             override fun loadFromDb() = covidDataDao.getCovidData(countryName)
 
             override fun createCall() =
-                apiServices.getCovidData(countryName)
+                apiServices.getCovidDataByCountryName(countryName)
 
         }.asLiveData()
     }
+
+
 
 }

@@ -12,11 +12,11 @@ import `in`.company.covid_19.repository.model.covid_data.CovidData
 interface CovidDataDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertArticles(articles: List<CovidData>): List<Long>
+    fun insertCovidData(list: List<CovidData>): List<Long>
 
     @Query("SELECT * FROM covid_status_table where country=(:countryName)")
     fun getCovidData(countryName:String): LiveData<List<CovidData>>
 
-    @Query("DELETE FROM covid_status_table")
-    fun deleteAllArticles()
+   @Query("DELETE FROM covid_status_table")
+    fun deleteAll()
 }

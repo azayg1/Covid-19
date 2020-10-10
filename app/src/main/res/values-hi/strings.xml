@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">कोविड -19</string>
+    <string name="text_critical">नाजुक: %1d</string>
+    <string name="text_confirmed">%1d :की पुष्टि</string>
+    <string name="text_recovered">ठीक हुए: %1d</string>
+    <string name="text_death">मृत्यु: %1d</string>
+    <string name="title_country">देश</string>
+    <string name="text_daily_total">दैनिक कुल</string>
+</resources>

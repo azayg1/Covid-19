@@ -8,7 +8,9 @@ import `in`.company.covid_19.repository.api.network.Resource
 import `in`.company.covid_19.repository.db.countries.CountriesDao
 import `in`.company.covid_19.repository.model.countries.Country
 import `in`.company.covid_19.utils.ConnectivityUtil
-import com.kotlin.mvvm.repository.api.network.NetworkAndDBBoundResource
+import `in`.company.covid_19.repository.api.network.NetworkAndDBBoundResource
+import `in`.company.covid_19.repository.api.network.NetworkBoundResource
+import `in`.company.covid_19.repository.model.covid_data.CovidData
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -40,6 +42,15 @@ class CountriesRepository @Inject constructor(
 
             override fun createCall() =
                 apiServices.getCountrySource()
+
+        }.asLiveData()
+    }
+
+    fun getLatestDaily(): LiveData<Resource<List<CovidData>>> {
+
+        return object : NetworkBoundResource<List<CovidData>>() {
+            override fun createCall() =
+                apiServices.getLatestDaily()
 
         }.asLiveData()
     }
