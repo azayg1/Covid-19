@@ -10,6 +10,4 @@ class CountriesViewModel @Inject constructor(var countriesRepository: CountriesR
     fun getCountries() = countriesRepository.getCountries()
 
     fun getLatestTotal() = countriesRepository.getLatestDaily()
-
-    fun getAllCountryCovidData() = countriesRepository.getAllCountryCovidData()
 }
